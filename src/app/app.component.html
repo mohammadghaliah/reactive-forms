@@ -1,0 +1,34 @@
+<p>reactive forms</p>
+<form [formGroup]="myModel">
+  <input type="text" formControlName="fisrtName" name="fisrtName" />
+  <input type="text" formControlName="lastName" name="lastName" />
+  <div formGroupName="subInfo">
+    <input type="text" formControlName="address" name="address" />
+    <input type="text" formControlName="zibCode" name="zibCode" />
+  </div>
+</form>
+{{ myModel.value.fisrtName | json }}<br />
+{{ myModel.value.lastName | json }}<br />
+{{ myModel.value | json }}<br />
+
+<input type="text" [formControl]="fisrtName" name="fisrtName" />
+{{ fisrtName.value }}
+
+<hr />
+<!-- ----------------------------------------- -->
+<p>FormBuilder</p>
+
+<form [formGroup]="myModelformBuilder">
+  <input type="text" formControlName="fisrtName" name="fisrtName" />
+  <input type="text" formControlName="lastName" name="lastName" />
+  <div formGroupName="subInfo">
+    <input type="text" formControlName="address" name="address" />
+    <input type="text" formControlName="zibCode" name="zibCode" />
+  </div>
+  <button type="button" [disabled]="!myModelformBuilder.valid">send</button>
+</form>
+{{ myModelformBuilder.value.fisrtName | json }}<br />
+{{ myModelformBuilder.value.lastName | json }}<br />
+{{ myModelformBuilder.value | json }}<br />
+
+{{ myModelformBuilder.valid | json }}<br />
